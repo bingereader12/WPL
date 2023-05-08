@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>   
+        <div class="container container-nav">
+        <div class="sitetitle">
+        <h1>RJ Bank</h1>
+        </div>
+        <div class="navbar">
+            <nav> 
+                <ul class="navlist">
+                    <li class="navlist-item"><a class="nav-link" href="/index.php">Home</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+            </div>
+    </header>
+    <div class="calculator">
+        <h2>SIP Calculator</h2>
+        <form>
+          <div class="form-group">
+            <label for="investment">Investment Amount (Rs.)</label>
+            <input type="number" id="investment" required>
+          </div>
+          <div class="form-group">
+            <label for="tenure">Investment Tenure (Years)</label>
+            <input type="number" id="tenure" required>
+          </div>
+          <div class="form-group">
+            <label for="rate">Expected Annual Return (%)</label>
+            <input type="number" id="rate" required>
+          </div>
+          <div class="form-group">
+            <label for="frequency">Investment Frequency</label>
+            <select id="frequency" required>
+              <option value="monthly">Monthly</option>
+              <option value="quarterly">Quarterly</option>
+              <option value="half-yearly">Half-Yearly</option>
+              <option value="annually">Annually</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <button type="submit" id="calculate-btn"><center>Calculate</center></button>
+          </div>
+        </form>
+        <div class="result">
+          <h3>Investment Results</h3>
+          <p>Investment Amount: <span id="investment-result"></span></p>
+          <p>Total Investment: <span id="total-investment-result"></span></p>
+          <p>Estimated Returns: <span id="returns-result"></span></p>
+          <p>Wealth Gain: <span id="wealth-gain-result"></span></p>
+        </div>
+      </div>
+  <script>
+   const calculator = document.querySelector('.calculator');
+const calculateBtn = document.querySelector('#calculate-btn');
+
+calculateBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  
+  const investment = parseFloat(document.querySelector('#investment').value);
+  const tenure = parseInt(document.querySelector('#tenure').value);
+  const rate = parseFloat(document.querySelector('#rate').value) / 100;
+  const frequency = document.querySelector('#frequency').value;
+  
+  let totalInvestment = 0;
+  let estimatedReturns = 0;
+  
+  if (frequency === 'monthly') {
+    totalInvestment = investment * 12 * tenure;
+    estimatedReturns = investment * (Math.pow(1 + rate/12, 12*tenure) - 1) / (rate/12);
+  } else if (frequency === 'quarterly') {
+    totalInvestment = investment * 4 * tenure;
+    estimatedReturns = investment * (Math.pow(1 + rate/4, 4*tenure) - 1) / (rate/4);
+  } else if (frequency === 'half-yearly') {
+    totalInvestment = investment * 2 * tenure;
+    estimatedReturns = investment * (Math.pow(1 + rate/2, 2*tenure) - 1) / (rate/2);
+  } else if (frequency === 'annually') {
+    totalInvestment = investment * tenure;
+    estimatedReturns = investment * (Math.pow(1 + rate, tenure) - 1) / rate;
+  }
+  
+  const wealthGain = estimatedReturns - totalInvestment;
+  
+  document.querySelector('#investment-result').textContent = `Rs. ${investment.toFixed(2)}`;
+  document.querySelector('#total-investment-result').textContent = `Rs. ${totalInvestment.toFixed(2)}`;
+  document.querySelector('#returns-result').textContent = `Rs. ${estimatedReturns.toFixed(2)}`;
+  document.querySelector('#wealth-gain-result').textContent = `Rs. ${wealthGain.toFixed(2)}`;
+});
+
+  </script>    
+</body>
+</html>

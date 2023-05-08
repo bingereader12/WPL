@@ -1,0 +1,150 @@
+
+body{
+    margin: 0;
+}
+
+h1{
+    font-family:'lora',serif;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 2rem;
+    margin: 0;
+}
+.subtitle{
+    margin: 0;
+    font-weight: bold;
+    color: #1792D2;
+    font-size: 0.75rem;
+}
+header{
+    background: #010101f8;
+    text-align: center;
+    padding: 2em 0;
+    height: 50px;
+    padding-top: 20px;
+    padding-bottom: 0;
+}
+
+
+.container{
+    width: 100%;
+    max-width: 960px; 
+    margin:0 auto;
+    height: 50px;
+}
+
+.container-nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+nav ul{
+ list-style: none;
+ display: flex;
+ padding: 0;
+ justify-content: center;
+ 
+}
+
+nav li{
+    margin: 0 1em;
+}
+
+nav a{
+    text-decoration: none;
+    font-weight: 700;
+    color: #fffdfd;
+}
+nav a:hover,nav a:focus{
+ /* color: #1792D2; */
+ border-bottom: 1px solid black;
+}
+
+.social{
+    color: black;
+}
+body {
+    background-image: url('/Images/blueimg1.jpg');
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-size: cover;
+  }
+
+@media (max-width:675px) {
+    .container-nav{
+        flex-direction: column;
+    }}
+    h2{
+        font-size: 40px;
+    }
+    h6{
+        font-size: 40px;
+    }
+
+
+
+
+
+
+
+
+
+
+.calculator {
+    width: 500px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .calculator h2 {
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .form-group select {
+    height: 40px;
+  }
+  
+  .form-group button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    align-items: center;
+  }
+  
+  .form-group button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .result {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .result h3 {
+    margin-top: 0;
+  }
+  
